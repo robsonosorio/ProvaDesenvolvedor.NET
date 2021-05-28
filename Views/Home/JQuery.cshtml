@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "JQuery";
+}
+<h2>@ViewBag.Title.</h2>
+@*<h3>@ViewBag.Message</h3>*@
+
+<p>Crie uma função utilizando jQuery que bloquei todos os campos de entrada (input, textarea, select, checkbox) de uma página HTML.</p>
+
+<script src="jquery-3.5.1.min.js"></script>
+<script src="http://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="#" crossorigin="anonymous">
+
+<div>
+    <label>Input:</label>
+    <input id="input" type="text" />
+    <br /><br />
+
+    <label>TextArea:</label>
+    <textarea id="textArea"></textarea>
+    <br /><br />
+
+    <label>Select:</label>
+    <select id="select" type="text">
+        <option value="1">banana</option>
+        <option value="2">uva</option>
+        <option value="3">maçã</option>
+    </select>
+    <br /><br />
+
+    <label>Checkbox:</label>
+    <input id="checkbox" type="checkbox" />
+    <br /><br />
+
+    <button id="btn" >Bloquear</button>
+</div>
+
+<script>
+    $('#btn').click( function () {
+
+        $('#input').prop('disabled', true);
+        $('#textArea').prop('disabled', true);
+        $('#select').prop('disabled', true);
+        $('#checkbox').prop('disabled', true);
+    });
+</script>

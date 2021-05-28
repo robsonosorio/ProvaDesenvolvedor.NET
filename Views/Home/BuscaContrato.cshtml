@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "Busca Contrato - Correios";
+}
+<h2>@ViewBag.Title.</h2>
+@*<h3>@ViewBag.Message</h3>*@
+
+
+<div>
+    <label>Número:</label>
+    <input id="txtNumero" type="text" />
+    <br /><br />
+
+    <label>Diretoria:</label>
+    <input id="txtDiretoria" type="number" />
+    <br /><br />
+
+    <label>Usuário:</label>
+    <input id="txtUsuario" type="text" />
+    <br /><br />
+
+    <label>Senha:</label>
+    <input id="txtSenha" type="text" />
+    <br /><br />
+
+    <button id="btn">Buscar</button>
+</div>
+
+<div>
+    <label id="resultado"></label>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        $('#btn').click(function () {
+            $.ajax({
+                url: '@Url.Action("EfetuaBusca", "Home")',
+                type: "GET",
+                contentType: "application/json",
+                data: {
+                    numero: $("#txtNumero").val(), diretoria: $("#txtDiretoria").val(),
+                    usuario: $("#txtUsuario").val(), senha: $("#txtSenha").val()
+                },
+                success: function (busca) {
+                    $("resultado")
+                },
+                error: function (xhr, exception) {
+                    alert("Erro ao efetuar a busca.")
+                }
+            });
+        })
+    });
+</script>
